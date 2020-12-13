@@ -21,4 +21,12 @@ jobs:
       with:
         java-version: 11
     - name: Build with Maven
-      run: mvn -B package --file pom.xml -Dmaven.test.skip=true 
+      run: mvn -B package --file pom.xml -Dmaven.test.skip=true
+
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v2.2.1
+      with:
+        image: diliproshitha/journal-your-trade-api-gateway
+        registry: repo.treescale.com
+        username: ${{ secrets.TREESCALE_USERNAME }}
+        password: ${{ secrets.TREESCALE_PASSWORD }}
