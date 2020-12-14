@@ -22,13 +22,20 @@ jobs:
         java-version: 11
     - name: Build with Maven
       run: mvn -B package --file pom.xml -Dmaven.test.skip=true
+      
+    - name: Login to DockerHub
+      uses: docker/login-action@v1 
+      with:
+        username: ${{ secrets.TREESCALE_USERNAME }}
+        password: ${{ secrets.TREESCALE_PASSWORD }}
+        registry: repo.treescale.com
 
     - name: Build and push Docker images
       uses: docker/build-push-action@v2.2.1
       with:
         tags: diliproshitha/journal-your-trade-api-gateway:latest
         context: .
-        push: true
         registry: repo.treescale.com
+        push: true
         username: ${{ secrets.TREESCALE_USERNAME }}
         password: ${{ secrets.TREESCALE_PASSWORD }}
