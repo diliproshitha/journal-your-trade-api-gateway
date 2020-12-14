@@ -39,4 +39,4 @@ jobs:
         tags: diliproshitha/journal-your-trade-api-gateway:latest
         context: .
         load: true
-    - run: docker push repo.treescale.com/diliproshitha/journal-your-trade-api-gateway:latest
+    - run: docker push diliproshitha/journal-your-trade-api-gateway:latest
