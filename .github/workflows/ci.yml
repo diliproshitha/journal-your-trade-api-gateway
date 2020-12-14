@@ -38,7 +38,5 @@ jobs:
       with:
         tags: diliproshitha/journal-your-trade-api-gateway:latest
         context: .
-        registry: repo.treescale.com
-        push: true
-        username: ${{ secrets.TREESCALE_USERNAME }}
-        password: ${{ secrets.TREESCALE_PASSWORD }}
+        load: true
+    - run: docker push repo.treescale.com/diliproshitha/journal-your-trade-api-gateway:latest
