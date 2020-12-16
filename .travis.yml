@@ -5,5 +5,5 @@ services:
 before_install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
   - docker build . -t repo.treescale.com/diliproshitha/journal-your-trade-api-gateway:latest
-  - echo "$TREESCALE_PASSWORD" | docker login -u "$TREESCALE_USERNAME" --password-stdin
+  - echo "$TREESCALE_PASSWORD" | docker login repo.treescale.com -u "$TREESCALE_USERNAME" --password-stdin
   - docker push repo.treescale.com/diliproshitha/journal-your-trade-api-gateway:latest
