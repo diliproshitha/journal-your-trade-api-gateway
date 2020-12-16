@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -29,6 +28,6 @@ jobs:
         username: ${{ secrets.TREESCALE_USERNAME }}
         password: ${{ secrets.TREESCALE_PASSWORD }}
         registry: repo.treescale.com
-
-    - run: docker build . -t repo.treescale.com/diliproshitha/journal-your-trade-api-gateway:latest
-    - run: docker push repo.treescale.com/diliproshitha/journal-your-trade-api-gateway:latest
+    
+    - run: docker build . -t repo.treescale.com/diliproshitha/journal-your-trade-api-gateway:latest && docker push repo.treescale.com/diliproshitha/journal-your-trade-api-gateway:latest
+  
