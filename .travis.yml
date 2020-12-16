@@ -1,0 +1,9 @@
+language: java
+jdk: openjdk11
+services:
+  - docker
+before_install:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - docker build . -t repo.treescale.com/diliproshitha/journal-your-trade-api-gateway:latest
+  - echo "$TREESCALE_PASSWORD" | docker login -u "$TREESCALE_USERNAME" --password-stdin
+  - docker push repo.treescale.com/diliproshitha/journal-your-trade-api-gateway:latest
